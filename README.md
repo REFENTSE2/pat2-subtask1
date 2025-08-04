@@ -1,29 +1,13 @@
-# pat2-subtask1
-# Name: [REFENTSE CAROLINE]
-# Surname: [MOTUPA]
-# Register Number: [0212270042089]
+# Prompt user to enter their access code
+access_code = input("Please enter your 7-digit access code: ")
 
-print("=== TVET College Mobile Clinic System ===")
+# Validation checks
+is_valid_length = len(access_code) == 7
+starts_with_digit = access_code[0].isdigit() if is_valid_length else False
+ends_with_T = access_code[-1] == "T" if is_valid_length else False
 
-# Prompt user for number of visitors
-num_males = int(input("Enter number of male students (18–25): "))
-num_females = int(input("Enter number of female students (18–25): "))
-num_elderly_males = int(input("Enter number of elderly males (60–70): "))
-num_elderly_females = int(input("Enter number of elderly females (60–70): "))
-
-# Calculate individual totals
-total_males = num_males * 25.00
-total_females = num_females * 23.00
-total_elderly_males = num_elderly_males * 18.00
-total_elderly_females = num_elderly_females * 16.00
-
-# Calculate overall total
-total_fee = total_males + total_females + total_elderly_males + total_elderly_females
-
-# Output all totals formatted to 2 decimal places
-print("\n--- Daily Fee Summary ---")
-print(f"Male students total: R{total_males:.2f}")
-print(f"Female students total: R{total_females:.2f}")
-print(f"Elderly males total: R{total_elderly_males:.2f}")
-print(f"Elderly females total: R{total_elderly_females:.2f}")
-print(f"\nTotal clinic fee collected: R{total_fee:.2f}")
+# Final validation and output
+if is_valid_length and starts_with_digit and ends_with_T:
+    print("✅ Valid passcode you may proceed")
+else:
+    print("❌ Invalid passcode!")
