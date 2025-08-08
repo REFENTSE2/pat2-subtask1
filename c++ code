@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cctype>
+using namespace std;
+
+int main() {
+    map<char, string> morse = {
+        {'A', ".--"}, {'B', "-..."}, {'C', "-.-."}, {'D', "-.."}, {'E', "."},
+        {'F', "..-."}, {'G', "--."}, {'H', "...."}, {'I', ".."}, {'J', ".---"},
+        {'K', "-.-"}, {'L', ".-.."}, {'M', "--"}, {'N', "-."}, {'O', "---"},
+        {'P', ".--."}, {'Q', "--.-"}, {'R', ".-."}, {'S', "..."}, {'T', "-"},
+        {'U', "..-"}, {'V', "...-"}, {'W', ".--"}, {'X', "-..-"}, {'Y', "-.--"},
+        {'Z', "--.."}
+    };
+
+    string msg, full = "";
+    cout << "Enter message: ";
+    getline(cin, msg);
+
+    for (char c : msg) {
+        if (isalpha(c)) {
+            c = toupper(c);
+            cout << c << ": " << morse[c] << endl;
+            full += morse[c] + "   ";
+        }
+    }
+
+    cout << "Full Morse code:\n" << full << endl;
+    return 0;
+}
