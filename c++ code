@@ -28,3 +28,4 @@ int main() {
     cout << "Full Morse code:\n" << full << endl;
     return 0;
 }
+
